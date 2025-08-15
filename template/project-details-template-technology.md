@@ -1,9 +1,9 @@
-# Prompt for PROJECT-DETAILS.md Template Generation
+# Solution-Focused Technology Project Template
 
-Generate a comprehensive PROJECT-DETAILS.md template file that serves as the primary interface for users to configure their document-based LLM workflow learning projects.
+Generate a comprehensive PROJECT-DETAILS.md template file that serves as the primary interface for users to configure their technology solution projects.
 
 ## Purpose
-This template should provide a structured way for users to define their project contexts, workflows, and educational objectives, serving as the central configuration hub for the learning platform.
+This template should provide a structured way for users to define their solution architecture, implementation strategy, and technical requirements, while maintaining documentation and knowledge transfer as supporting features.
 
 ## Required Template Sections
 
