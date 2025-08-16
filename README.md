@@ -23,6 +23,7 @@ Metamake is a framework for building and managing document-based solution implem
   - `prompt-copilot-instructions.md` – Copilot context and usage instructions
   - `prompt-scaffold.md` – Basic scaffolding guidance
   - `prompt-scaffold-details-accuracy.md` – Detailed scaffolding with quality assurance
+  - `prompt-iterate-roadmap.md` – Iterative roadmap management and development workflow
 - `projects/` – Example and user-created project branches
 - `template/` – Project templates for different configurations
 
@@ -47,7 +48,13 @@ Metamake provides built-in scaffolding tools to help you quickly create and main
    - Review changes against the quality checklist before finalizing
    - Share prompts with contributors to align on standards
 
-The scaffolding system helps maintain Metamake's standards for solution value and technical accuracy while simplifying the project creation process.
+4. **Iterate and Evolve:**
+   - Use the roadmap iteration prompt (`prompts/prompt-iterate-roadmap.md`) to maintain project alignment
+   - Regularly analyze current state and update roadmaps based on actual progress
+   - Execute development work based on roadmap priorities and update roadmaps again when complete
+   - Maintain continuous alignment between project vision and reality
+
+The scaffolding system helps maintain Metamake's standards for solution value and technical accuracy while simplifying the project creation process. The iterative roadmap system ensures projects stay aligned with their objectives and adapt effectively to changing requirements.
 
 ## Specialized Work Types: Usage and Extensibility Guide
 
