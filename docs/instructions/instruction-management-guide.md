@@ -42,7 +42,7 @@ Examples:
 
 ### Step 2: Use the Template
 
-- Copy `instruction-template.copilot-instructions.md`
+- Copy `templates/instruction-template.copilot-instructions.md`
 - Rename following the naming convention
 - Fill in all template sections with domain-specific content
 
