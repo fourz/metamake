@@ -1,0 +1,39 @@
+name: Reminders Engine
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # Run every 5 minutes
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Run in dry-run mode (no actual comments)'
+        required: false
+        default: 'false'
+        type: boolean
+
+jobs:
+  run-reminders:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: 'packages/reminders/package.json'
+      
+      - name: Install dependencies
+        run: |
+          cd packages/reminders
+          npm ci || npm install
+      
+      - name: Run reminders engine
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DRY_RUN: ${{ github.event.inputs.dry_run == 'true' || 'false' }}
+          AUTO_CREATE_TRACKING: '1'
+        run: node packages/reminders/scripts/run-reminders.js

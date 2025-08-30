@@ -105,6 +105,40 @@ For comprehensive guidance on creating, organizing, and maintaining specialized 
 
 - See `projects/00-example/` for sample project structures and content organization.
 
+## Reminders Engine
+
+Metamake includes an automated reminders engine that runs via GitHub Actions every 5 minutes to provide intelligent notifications based on calendar events, timers, and recurring tasks. This feature helps teams stay on top of important activities and deadlines directly within their GitHub workflow.
+
+### Key Features
+
+- **Calendar Integration**: Parses ICS calendar files to provide event-based reminders with configurable lead times
+- **Interval Timers**: Automated reminders at specified intervals for recurring tasks
+- **Open-ended Reminders**: Flexible repeating notifications for ongoing activities
+- **GitHub Native**: Posts reminder comments directly to tracking issues using GitHub's API
+- **Template System**: Dynamic message rendering with context-aware variables
+- **Dry-run Support**: Test and validate reminders without actual posting
+
+### Quick Start
+
+The reminders engine is automatically configured and runs via GitHub Actions. To customize:
+
+1. **Configure Reminders**: Edit `.github/reminders.yml` to define your reminder schedule
+2. **Add Calendar Events**: Place ICS calendar files in `packages/reminders/calendar/`
+3. **Set Tracking Issue**: Specify issue numbers for reminder comments (auto-creates if needed)
+
+### Example Configuration
+
+```yaml
+reminders:
+  - name: "daily-standup"
+    type: "calendar_event" 
+    tracking_issue: 1
+    template: "📅 Daily standup in {{minutes_until}} minutes!"
+    lead_time_minutes: 10
+```
+
+For complete documentation, configuration options, development notes, and integration details, see [packages/reminders/README.md](packages/reminders/README.md).
+
 ---
 
 For more details on configuring and extending your solution implementation workflow, see the prompt files in the `prompts/` directory and the instruction management guide in `docs/instructions/instruction-management-guide.md`.
