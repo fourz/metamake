@@ -1,0 +1,46 @@
+# Reminders Engine Configuration
+# This file configures the automated reminder system
+
+settings:
+  calendar:
+    ics_file: "packages/reminders/calendar/events.ics"
+    # Future: remote_url: "https://calendar.example.com/calendar.ics"
+
+reminders:
+  - name: "daily-standup"
+    type: "calendar_event"
+    tracking_issue: 1
+    description: "Reminds about daily standup meetings"
+    template: "{{prefix}} Daily standup starting in {{minutes_until}} minutes! 🚀\n\nEvent: {{event_summary}}\nTime: {{event_start_local}}\n\n_Automated reminder at {{timestamp}}_"
+    prefix: "📅"
+    look_ahead_minutes: 30
+    look_behind_minutes: 5
+    lead_time_minutes: 10
+    summary_regex: "(?i)standup|daily"
+
+  - name: "release-window"
+    type: "calendar_event"
+    tracking_issue: 1
+    description: "Alerts about upcoming release windows"
+    template: "{{prefix}} Release window starting in {{minutes_until}} minutes! 🚀🎯\n\nEvent: {{event_summary}}\nTime: {{event_start_local}}\n\n⚠️ Please ensure all pre-release checks are complete.\n\n_Automated reminder at {{timestamp}}_"
+    prefix: "🚀"
+    look_ahead_minutes: 60
+    look_behind_minutes: 0
+    lead_time_minutes: 15
+    summary_regex: "(?i)release"
+
+  - name: "hourly-security-scan"
+    type: "timer"
+    tracking_issue: 1
+    description: "Hourly security scan reminder"
+    template: "{{prefix}} Hourly security scan checkpoint 🔒\n\nRunning automated security scans and system health checks.\n\n_Automated reminder at {{timestamp}}_"
+    prefix: "🔒"
+    interval_minutes: 60
+
+  - name: "heartbeat"
+    type: "open_ended"
+    tracking_issue: 1
+    description: "System heartbeat to confirm reminders engine is running"
+    template: "{{prefix}} Reminders engine heartbeat ❤️\n\nSystem operational and monitoring active.\n\n_Automated reminder at {{timestamp}}_"
+    prefix: "❤️"
+    every_minutes: 15
